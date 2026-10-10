@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f6f1ff">
+<title>KEYNOTE — 내 귀는 어떤 타입?</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
+:root{--ink:#322a49;--muted:#817891;--purple:#8b78ed;--purple2:#6d58d8;--lav:#f0ebff;--mint:#e2f8ee;--pink:#ffe8ef;--yellow:#fff3cc;--line:#ebe4f6;--white:#fffdfd;--shadow:0 16px 45px #56418a12}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 8% 5%,#ffe8f0 0,transparent 28%),radial-gradient(circle at 92% 12%,#e2f8ed 0,transparent 28%),#f7f4ff;color:var(--ink);font-family:'Noto Sans KR',sans-serif;min-height:100vh}button{font:inherit;cursor:pointer;border:0}button:focus-visible{outline:3px solid #7965dc;outline-offset:3px}.hidden{display:none!important}
+.wrap{width:min(100% - 28px,850px);margin:auto;padding:22px 0 40px}.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:1.5px;font-size:17px}.logo{width:38px;height:38px;background:var(--purple);color:#fff;border-radius:14px;display:grid;place-items:center;font-size:21px;box-shadow:0 6px 16px #8b78ed44}.tag{font-size:11px;color:var(--muted);background:#ffffffb8;border:1px solid #e9e1f6;border-radius:999px;padding:8px 11px}
+main{background:#ffffffd9;border:1px solid #fff;border-radius:28px;box-shadow:var(--shadow);padding:clamp(20px,5vw,42px);overflow:hidden}.hero{text-align:center}.mascot{position:relative;width:118px;height:118px;margin:8px auto 22px;border-radius:37px;background:linear-gradient(145deg,#e9e1ff,#dcf8ec);display:grid;place-items:center;font-size:57px;transform:rotate(-3deg);box-shadow:inset 0 0 0 1px #fff}.spark{position:absolute;font-size:21px}.spark.a{top:-8px;right:-9px}.spark.b{bottom:-4px;left:-12px;font-size:17px}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:800;color:var(--purple2)}h1,h2,h3,p{margin-top:0}h1{font-family:'Jua',sans-serif;font-size:clamp(34px,7vw,54px);line-height:1.18;letter-spacing:-.8px;margin:12px 0 12px}h1 span{color:var(--purple2)}.lead{color:var(--muted);font-size:14px;line-height:1.85;max-width:510px;margin:0 auto 24px;word-break:keep-all}
+.mode-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;max-width:620px;margin:26px auto 0}.mode-grid.single{grid-template-columns:minmax(0,1fr);max-width:440px}.mode-card{text-align:left;padding:20px;border:1.5px solid var(--line);border-radius:20px;background:#fff;transition:.18s;min-height:190px}.mode-card:hover{border-color:#b9aaf9;transform:translateY(-3px);box-shadow:0 12px 24px #8b78ed15}
+.absolute-card{cursor:default}.absolute-card:hover{transform:none}
+.difficulty-row{display:flex;gap:6px;margin:0 0 12px}
+.difficulty-btn{flex:1;padding:8px 5px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font-size:11px;font-weight:800}
+.difficulty-btn:hover,.difficulty-btn.selected{border-color:var(--purple);background:var(--lav);color:var(--purple2)}
+.mode-icon{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;font-size:25px;background:var(--lav);margin-bottom:14px}.mode-icon.mint{background:var(--mint)}.mode-card h3{font-size:16px;margin-bottom:7px}.mode-card p{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:13px}.chip{display:inline-block;font-size:10px;font-weight:700;color:var(--purple2);background:var(--lav);padding:6px 9px;border-radius:99px}.chip.green{background:var(--mint);color:#2d805f}.note{font-size:11px;color:#9990a8;line-height:1.75;text-align:center;margin:20px auto 0;max-width:610px}
+.primary{background:var(--purple);color:white;border-radius:13px;padding:13px 18px;font-weight:800;font-size:13px;box-shadow:0 7px 16px #8b78ed35}.primary:hover{background:var(--purple2)}.secondary{background:#f3efff;color:var(--purple2);border-radius:12px;padding:12px 16px;font-weight:700;font-size:13px}.outline{background:white;border:1px solid var(--line);color:var(--ink);border-radius:12px;padding:12px 16px;font-weight:700;font-size:13px}
+.quiz-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}.quiz-name{font-size:12px;font-weight:800;color:var(--purple2)}.counter{font-size:12px;color:var(--muted)}.progress{height:7px;background:#f0edf7;border-radius:99px;overflow:hidden;margin-bottom:26px}.progress span{display:block;height:100%;background:linear-gradient(90deg,#8b78ed,#75d8b5);width:0;transition:width .25s}.question{text-align:center}.question h2{font-family:'Jua',sans-serif;font-size:clamp(25px,5vw,33px);margin-bottom:8px}.question p{font-size:12px;line-height:1.7;color:var(--muted);margin-bottom:15px}.listen{width:110px;height:110px;border-radius:34px;background:linear-gradient(145deg,#ece5ff,#dff7ed);color:var(--purple2);font-size:36px;margin:5px auto 12px;display:grid;place-items:center;box-shadow:0 8px 20px #8b78ed19}.listen.playing{animation:pulse .9s infinite alternate}@keyframes pulse{to{transform:scale(1.04);box-shadow:0 0 0 10px #8b78ed18}}.listen-hint{font-size:11px;color:#958da4;margin-bottom:23px}.answers{display:grid;grid-template-columns:repeat(2,minmax(130px,220px));justify-content:center;gap:9px;max-width:460px;width:100%;margin:0 auto}.answer{border:1.5px solid var(--line);border-radius:12px;background:white;color:var(--ink);font-weight:700;font-size:12px;min-height:51px;padding:10px 5px}.answer:hover:not(:disabled){border-color:var(--purple);background:#faf8ff}.answer:disabled{cursor:default}.answer.correct{background:#e3f8ec;border-color:#69c79b;color:#26734d}.answer.wrong{background:#ffebef;border-color:#e99caf;color:#a13b54}.feedback{font-size:13px;font-weight:700;text-align:center;min-height:24px;margin-top:17px}.feedback.good{color:#2b8a62}.feedback.bad{color:#bb4860}.actions{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.result{text-align:center}.result-badge{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--purple2);background:var(--lav);border-radius:99px;padding:8px 12px;margin:5px 0 17px}.result-art{font-size:53px;margin-bottom:8px}.result h2{font-family:'Jua',sans-serif;font-size:clamp(30px,6vw,43px);margin:0 0 12px}.result-desc{font-size:13px;color:var(--muted);line-height:1.85;max-width:530px;margin:0 auto 22px}.score-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:500px;margin:20px auto}.score-card{border:1px solid var(--line);border-radius:17px;padding:17px;background:#fff}.score-label{font-size:11px;color:var(--muted)}.score-value{font-family:'Jua',sans-serif;font-size:35px;color:var(--purple2);margin:7px 0}.result-card{max-width:540px;margin:0 auto 20px;border-radius:22px;padding:23px;background:linear-gradient(135deg,#f0ebff,#e4f8ef);border:1px solid #fff;text-align:left}.result-card small{font-size:10px;letter-spacing:1.8px;color:#7665c4;font-weight:800}.result-card h3{font-family:'Jua',sans-serif;font-size:24px;margin:9px 0}.result-card p{font-size:12px;line-height:1.8;color:#625b79;margin:0}.share-line{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:17px}.result-actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}.history{margin-top:25px;text-align:left;border-top:1px solid var(--line);padding-top:20px}.history h3{font-size:14px;margin-bottom:10px}.history-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.history-item{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff;font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:8px}.history-item strong{color:var(--ink)}footer{text-align:center;color:#a39bae;font-size:10px;line-height:1.8;padding:20px 8px 0}
+@media(max-width:520px){.wrap{width:calc(100% - 18px);padding-top:14px}.topbar{margin-bottom:13px}main{padding:22px 15px;border-radius:23px}.mode-grid{grid-template-columns:1fr}.mode-card{min-height:0;padding:17px}.mode-card p{margin-bottom:9px}.answers{grid-template-columns:repeat(2,minmax(0,1fr))}.tag{font-size:9px}.mascot{width:103px;height:103px;font-size:50px}.history-list{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="topbar"><div class="brand"><div class="logo">♫</div><span>KEYNOTE</span></div><div class="tag">SOUND PERSONALITY TEST</div></header>
+<main>
+<section id="home" class="hero">
+  <div class="mascot">🎧<span class="spark a">✦</span><span class="spark b">♪</span></div>
+  <div class="eyebrow">LISTEN · GUESS · DISCOVER</div>
+  <h1>내 귀는<br><span>어떤 타입</span>일까?</h1>
+  <p class="lead">피아노 소리를 듣고 음이름을 맞히고, 소리의 변화와 화음을 찾아봐!<br>나의 소리 감각을 재미있게 확인해 보자.</p>
+  <div class="mode-grid">
+    <div class="mode-card absolute-card"><div class="mode-icon">🎹</div><h3>절대음감 테스트</h3><p>난이도를 선택하고 기준음 없이 들리는 음의 이름을 맞혀봐.</p><div class="difficulty-row"><button class="difficulty-btn" onclick="startTest('absolute','easy')">초급</button><button class="difficulty-btn selected" onclick="startTest('absolute','normal')">중급</button><button class="difficulty-btn" onclick="startTest('absolute','hard')">고급</button></div><span class="chip">10문제 · 약 2분</span></div>
+    <button class="mode-card" onclick="startTest('chord')"><div class="mode-icon mint">🎼</div><h3>화음 구성음 찾기</h3><p>동시에 울리는 화음을 듣고 어떤 음으로 이루어져 있는지 골라봐.</p><span class="chip green">10문제 · 약 2분</span></button>
+  </div>
+  <p class="note">이어폰을 사용하면 더 잘 들을 수 있어. 이 테스트는 재미와 자기 점검을 위한 참고용이야. 짧은 테스트만으로 음악적 능력을 확정할 수는 없어.</p>
+  <div id="history" class="history hidden"><h3>최근 테스트 기록</h3><div id="historyList" class="history-list"></div></div>
+</section>
+
+<section id="quiz" class="hidden">
+  <div class="quiz-head"><button class="secondary" onclick="goHome()">← 나가기</button><div class="quiz-name" id="quizName">절대음감 테스트</div><div class="counter" id="counter">01 / 10</div></div>
+  <div class="progress"><span id="progressFill"></span></div>
+  <div class="question"><h2 id="questionTitle">이 음의 이름은?</h2><p id="questionDesc">소리를 듣고 답을 골라봐.</p><button id="listen" class="listen" onclick="playQuestion()" aria-label="음원 재생">♫</button><div id="listenHint" class="listen-hint">눌러서 소리 듣기 · 다시 들을 수 있어</div></div>
+  <div id="answers" class="answers"></div><div id="feedback" class="feedback" aria-live="polite"></div>
+  <div class="actions"><button class="outline" onclick="goHome()">테스트 그만하기</button><button id="next" class="primary hidden" onclick="nextQuestion()">다음 문제 →</button></div>
+</section>
+
+<section id="result" class="result hidden">
+  <div class="result-badge">MY EAR PROFILE</div><div class="result-art" id="resultEmoji">🌟</div><h2 id="resultTitle">음 이름 레이더</h2><p class="result-desc" id="resultDesc"></p>
+  <div class="score-grid"><div class="score-card"><div class="score-label">맞힌 문제</div><div class="score-value" id="score">0/10</div><div class="score-label">이번 테스트 결과</div></div><div class="score-card"><div class="score-label">정답률</div><div class="score-value" id="accuracy">0%</div><div class="score-label">문항 기준</div></div></div>
+  <div class="result-card" id="shareCard"><small>KEYNOTE · SOUND PERSONALITY</small><h3 id="cardTitle">음 이름 레이더</h3><p id="cardText">내 귀의 감각을 확인해 봤어. 너도 테스트해 봐!</p></div>
+  <p class="share-line" id="advice"></p>
+  <div class="result-actions"><button class="primary" onclick="shareResult()">결과 공유하기</button><button class="outline" onclick="goHome()">다른 테스트 하기</button></div>
+  <p class="note">결과 유형은 재미를 위한 안내야. 짧은 테스트만으로 음악적 능력을 확정할 수는 없어.</p>
+</section>
+</main>
+<footer>KEYNOTE · 작은 소리에서 발견하는 나만의 감각<br>절대음감 테스트 · 화음 구성음 찾기 · 브라우저에서 음원을 합성합니다. 테스트 기록은 이 기기에만 저장됩니다.</footer>
+</div>
+<script>
+const NOTE=['도 (C)','도♯ (C♯)','레 (D)','레♯ (D♯)','미 (E)','파 (F)','파♯ (F♯)','솔 (G)','솔♯ (G♯)','라 (A)','라♯ (A♯)','시 (B)'];
+const CHORDS=[
+ {pcs:[0,4,7],notes:[60,64,67]},
+ {pcs:[2,6,9],notes:[62,66,69]},
+ {pcs:[4,7,11],notes:[64,67,71]},
+ {pcs:[5,9,0],notes:[65,69,72]},
+ {pcs:[7,11,2],notes:[67,71,74]},
+ {pcs:[9,0,4],notes:[69,72,76]},
+ {pcs:[2,5,9],notes:[62,65,69]},
+ {pcs:[11,2,6],notes:[59,62,66]},
+ {pcs:[0,3,7],notes:[60,63,67]},
+ {pcs:[5,8,0],notes:[65,68,72]},
+ {pcs:[7,10,2],notes:[67,70,74]},
+ {pcs:[9,1,4],notes:[69,73,76]}
+];
+function chordLabel(ch){return ch.pcs.map(n=>NOTE[n].split(' ')[0]).join(' · ')}
+
+const INTERVAL=[{label:'단2도',s:1},{label:'장2도',s:2},{label:'단3도',s:3},{label:'장3도',s:4},{label:'완전4도',s:5},{label:'증4도 / 감5도',s:6},{label:'완전5도',s:7},{label:'단6도',s:8}];
+let mode='absolute',difficulty='normal',qs=[],idx=0,score=0,answered=false,resultData=null,ctx=null,answersLog=[];
+const $=id=>document.getElementById(id);
+function shuffle(arr){let a=[...arr];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function makeQs(){
+ if(mode==='absolute'){
+  const pool=difficulty==='easy'?[0,2,4,5,7,9,11]:Array.from({length:12},(_,n)=>n);
+  return shuffle(Array.from({length:10},()=>pool[Math.floor(Math.random()*pool.length)])).map(n=>{
+   const distractors=pool.filter(i=>i!==n);
+   const opts=shuffle([n,...shuffle(distractors).slice(0,3)]);
+   const midi= difficulty==='hard' ? (48+n+12*Math.floor(Math.random()*3)) : 60+n;
+   return {target:n,midi,opts};
+  });
+ }
+ return shuffle(Array.from({length:CHORDS.length},(_,i)=>i)).slice(0,10).map(i=>({target:i,chord:CHORDS[i],opts:shuffle([i,...shuffle(CHORDS.map((_,j)=>j).filter(j=>j!==i)).slice(0,3)])}));
+}
+function startTest(m,level='normal'){
+ mode=m;difficulty=level;qs=makeQs();idx=0;score=0;answersLog=[];
+ $('home').classList.add('hidden');$('result').classList.add('hidden');$('quiz').classList.remove('hidden');
+ $('quizName').textContent=mode==='absolute'?'🎹 절대음감 테스트 · '+({easy:'초급',normal:'중급',hard:'고급'}[difficulty]):'🎼 화음 구성음 찾기';
+ render();window.scrollTo({top:0,behavior:'smooth'})
+}
+function audio(){if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')ctx.resume();return ctx}
+function tone(midi,when,dur=.8){let c=audio(),f=440*Math.pow(2,(midi-69)/12),master=c.createGain();master.gain.setValueAtTime(.0001,when);master.gain.exponentialRampToValueAtTime(.16,when+.02);master.gain.exponentialRampToValueAtTime(.0001,when+dur);master.connect(c.destination);[[1,1],[2,.34],[3,.15],[4,.07],[5,.03]].forEach(([h,v])=>{let o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=f*h;g.gain.value=v;o.connect(g);g.connect(master);o.start(when);o.stop(when+dur+.03)})}
+function playQuestion(){
+ let q=qs[idx],b=$('listen');b.classList.add('playing');
+ $('listenHint').textContent=mode==='absolute'?'집중해서 들어봐! 다시 들을 수 있어.':'화음을 이루는 세 음을 집중해서 들어봐.';
+ const c=audio(),start=c.currentTime+.08;
+ if(mode==='absolute'){tone(q.midi,start,.95);setTimeout(()=>b.classList.remove('playing'),1100);return}
+ q.chord.notes.forEach(n=>tone(n,start,.95));
+ setTimeout(()=>b.classList.remove('playing'),1200)
+}
+function render(){
+ answered=false;let q=qs[idx];$('counter').textContent=String(idx+1).padStart(2,'0')+' / 10';$('progressFill').style.width=(idx/10*100)+'%';
+ $('questionTitle').textContent=mode==='absolute'?'이 음의 이름은?':'이 화음은 어떤 음으로 이루어져 있을까?';
+ $('questionDesc').textContent=mode==='absolute'?({easy:'흰 건반에 해당하는 음 중에서 골라봐.',normal:'반음까지 포함한 모든 음 중에서 골라봐.',hard:'높은 음과 낮은 음이 섞여 나와. 음이름을 맞혀봐.'}[difficulty]):'동시에 울리는 세 음을 듣고 구성음을 골라봐.';
+ $('listen').classList.remove('playing');$('listenHint').textContent='♫ 버튼을 눌러 소리 듣기';$('feedback').textContent='';$('feedback').className='feedback';$('next').classList.add('hidden');$('answers').innerHTML='';
+ q.opts.forEach(o=>{let b=document.createElement('button');b.className='answer';b.textContent=mode==='absolute'?NOTE[o]:chordLabel(CHORDS[o]);b.onclick=()=>choose(o,b);$('answers').appendChild(b)})
+}
+function choose(o,btn){
+ if(answered)return;answered=true;let q=qs[idx],ok=o===q.target;if(ok)score++;
+ let target=mode==='absolute'?NOTE[q.target]:chordLabel(CHORDS[q.target]);
+ answersLog.push({ok,target});document.querySelectorAll('.answer').forEach(b=>b.disabled=true);
+ document.querySelectorAll('.answer').forEach(b=>{if(b.textContent===target)b.classList.add('correct')});
+ if(!ok)btn.classList.add('wrong');$('feedback').className='feedback '+(ok?'good':'bad');
+ $('feedback').textContent=ok?'정답! 귀가 섬세한데?':'아쉬워! 정답은 '+target+'였어.';
+ $('progressFill').style.width=((idx+1)/10*100)+'%';$('next').textContent=idx===9?'내 결과 확인하기 →':'다음 문제 →';$('next').classList.remove('hidden')
+}
+function nextQuestion(){if(!answered)return;if(idx<9){idx++;render()}else showResult()}
+function testLabel(m){return ({absolute:'절대음감',chord:'화음 구성음 찾기'})[m]||'음감'}
+function showResult(){
+ let pct=Math.round(score/10*100),abs=mode==='absolute',emoji,title,desc,tip;
+ if(pct>=80){emoji=abs?'🔎':'🎼';title=abs?'음 이름 레이더':'화음 탐정';desc=abs?'이번 테스트에서 들리는 음을 음이름과 연결하는 감각이 돋보였어.':'화음을 이루는 음들을 잘 찾아냈어.';tip=abs?'다른 난이도에서도 도전해 봐!':'다양한 화음을 반복해서 들으며 감각을 더 키워 봐!'}
+ else if(pct>=50){emoji='🎧';title=abs?'음 이름 탐험가':'화음 입문자';desc=abs?'몇몇 음이름을 잘 맞혔어. 정답을 확인하면서 반복해 보자.':'몇몇 화음 구성음을 잘 찾아냈어. 정답을 확인하면서 반복해 보자.';tip=abs?'익숙해지면 다음 난이도에 도전해 봐.':'화음을 다시 듣고 어떤 음이 포함됐는지 비교해 봐.'}
+ else{emoji='🌱';title=abs?'소리 발견자':'화음 연습생';desc=abs?'아직 낯선 음이 많을 수 있어. 음악 감각을 알아가는 출발점으로 생각해 봐.':'화음이 낯설 수 있어. 음을 하나씩 나누어 듣는 연습부터 시작해 봐.';tip='한 번에 점수를 높이기보다 자주 듣고 정답을 확인해 봐.'}
+ resultData={mode,difficulty:mode==='absolute'?difficulty:null,score,pct,title};
+ $('quiz').classList.add('hidden');$('result').classList.remove('hidden');$('resultEmoji').textContent=emoji;$('resultTitle').textContent=title;$('score').textContent=score+'/10';$('accuracy').textContent=pct+'%';$('cardTitle').textContent=title;
+ $('cardText').textContent=`${testLabel(mode)}${abs?' · '+({easy:'초급',normal:'중급',hard:'고급'}[difficulty]):''} 테스트 ${score}/10 · 정답률 ${pct}%\\n나의 귀도 테스트해 봤어. 너도 도전해 봐!`;
+ $('resultDesc').textContent=desc;$('advice').textContent=tip+' 결과 유형은 재미를 위한 참고 정보이며, 전문적인 청음 평가를 대체하지 않아.';saveHistory(resultData);renderHistory();window.scrollTo({top:0,behavior:'smooth'})
+}
+function shareText(){return `KEYNOTE 음감 테스트 결과\\n${testLabel(mode)}${mode==='absolute'?' · '+({easy:'초급',normal:'중급',hard:'고급'}[difficulty]):''} · ${resultData.title}\\n점수 ${resultData.score}/10 (${resultData.pct}%)\\n너도 도전해 봐!\\n${window.location.href.split('#')[0]}`}
+async function shareResult(){
+ const pageUrl=window.location.href.split('#')[0];
+ if(window.location.protocol==='file:'){
+  alert('공유 링크를 넣으려면 먼저 사이트를 GitHub Pages 등으로 공개해야 해. 공개된 사이트 주소에서 다시 공유해 줘.');
+  return;
+ }
+ const text=shareText();
+ if(navigator.share){
+  try{await navigator.share({title:'KEYNOTE 음감 테스트 결과',text,url:pageUrl})}catch(e){}
+ }else{
+  try{await navigator.clipboard.writeText(text);alert('공유 문구와 사이트 링크를 복사했어! 카카오톡에 붙여넣어 공유해 줘.')}
+  catch(e){prompt('아래 문구와 링크를 복사해 줘:',text)}
+ }
+}
+function goHome(){$('quiz').classList.add('hidden');$('result').classList.add('hidden');$('home').classList.remove('hidden');renderHistory();window.scrollTo({top:0,behavior:'smooth'})}
+function saveHistory(r){try{let a=JSON.parse(localStorage.getItem('earlab_viral_history')||'[]');a.unshift({...r,date:new Date().toLocaleDateString('ko-KR')});localStorage.setItem('earlab_viral_history',JSON.stringify(a.slice(0,4)))}catch(e){}}
+function renderHistory(){try{let a=JSON.parse(localStorage.getItem('earlab_viral_history')||'[]');if(!a.length)return;$('history').classList.remove('hidden');$('historyList').innerHTML='';a.forEach(r=>{let d=document.createElement('div');d.className='history-item';let l=document.createElement('span');l.textContent=r.date+' · '+(r.mode==='absolute'?'절대음감 '+({easy:'초급',normal:'중급',hard:'고급'}[r.difficulty||'normal']):testLabel(r.mode));let s=document.createElement('strong');s.textContent=r.score+'/10 · '+r.pct+'%';d.append(l,s);$('historyList').append(d)})}catch(e){}}
+renderHistory();
+</script>
+</body>
+</html>
