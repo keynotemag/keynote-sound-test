@@ -31,12 +31,12 @@ main{background:#ffffffd9;border:1px solid #fff;border-radius:28px;box-shadow:va
   <div class="mascot">🎧<span class="spark a">✦</span><span class="spark b">♪</span></div>
   <div class="eyebrow">LISTEN · GUESS · DISCOVER</div>
   <h1>내 귀는<br><span>어떤 타입</span>일까?</h1>
-  <p class="lead">피아노 소리를 듣고 음이름을 맞히고, 소리의 변화와 화음을 찾아봐!<br>나의 소리 감각을 재미있게 확인해 보자.</p>
+  <p class="lead">피아노 소리를 듣고 음이름을 맞히고, 소리의 변화와 화음을 찾아봐!<br></p>
   <div class="mode-grid">
     <div class="mode-card absolute-card"><div class="mode-icon">🎹</div><h3>절대음감 테스트</h3><p>난이도를 선택하고 기준음 없이 들리는 음의 이름을 맞혀봐.</p><div class="difficulty-row"><button class="difficulty-btn" onclick="startTest('absolute','easy')">초급</button><button class="difficulty-btn selected" onclick="startTest('absolute','normal')">중급</button><button class="difficulty-btn" onclick="startTest('absolute','hard')">고급</button></div><span class="chip">10문제 · 약 2분</span></div>
     <button class="mode-card" onclick="startTest('chord')"><div class="mode-icon mint">🎼</div><h3>화음 구성음 찾기</h3><p>동시에 울리는 화음을 듣고 어떤 음으로 이루어져 있는지 골라봐.</p><span class="chip green">10문제 · 약 2분</span></button>
   </div>
-  <p class="note">이어폰을 사용하면 더 잘 들을 수 있어. 이 테스트는 재미와 자기 점검을 위한 참고용이야. 짧은 테스트만으로 음악적 능력을 확정할 수는 없어.</p>
+  <p class="note">이어폰을 사용하시면 소리를 더 정확하게 들으실 수 있습니다.<br>이 테스트는 재미와 자기 점검을 위한 참고용입니다.</p>
   <div id="history" class="history hidden"><h3>최근 테스트 기록</h3><div id="historyList" class="history-list"></div></div>
 </section>
 
@@ -54,7 +54,7 @@ main{background:#ffffffd9;border:1px solid #fff;border-radius:28px;box-shadow:va
   <div class="result-card" id="shareCard"><small>KEYNOTE · SOUND PERSONALITY</small><h3 id="cardTitle">음 이름 레이더</h3><p id="cardText">내 귀의 감각을 확인해 봤어. 너도 테스트해 봐!</p></div>
   <p class="share-line" id="advice"></p>
   <div class="result-actions"><button class="primary" onclick="shareResult()">결과 공유하기</button><button class="outline" onclick="goHome()">다른 테스트 하기</button></div>
-  <p class="note">결과 유형은 재미를 위한 안내야. 짧은 테스트만으로 음악적 능력을 확정할 수는 없어.</p>
+  <p class="note">결과 유형은 재미를 위한 안내야. </p>
 </section>
 </main>
 <footer>KEYNOTE · 작은 소리에서 발견하는 나만의 감각<br>절대음감 테스트 · 화음 구성음 찾기 · 브라우저에서 음원을 합성합니다. 테스트 기록은 이 기기에만 저장됩니다.</footer>
